@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<flow>
+   <steps>
+      <step class="Xml2JsonStep">
+         <disabled>true</disabled>
+         <param mode="xml2json"></param>
+      </step>
+      <step class="Json2XmlStep">
+         <disabled>false</disabled>
+         <param mode="json2xml"></param>
+      </step>
+   </steps>
+</flow>

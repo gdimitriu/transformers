@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<flow>
+	<steps>
+		<step class="XslStep">
+			<param factoryEngine="net.sf.saxon.TransformerFactoryImpl" 
+				mappingName="processingMap.xsl"/>
+			<disabled>false</disabled>
+		</step>
+		<step class="XslStep">
+			<param factoryEngine="net.sf.saxon.TransformerFactoryImpl" 
+				mappingName="processingMap1.xsl"/>
+			<disabled>false</disabled>
+		</step>
+	</steps>
+</flow>

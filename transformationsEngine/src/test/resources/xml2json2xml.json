@@ -1,0 +1,14 @@
+{"flow":{
+	"steps":{
+		"step":{
+			"@class":"Xml2JsonStep",
+			"disabled":"true",
+			"param":{"@mode":"xml2json"}
+		},
+		"step":{
+			"@class":"Json2XmlStep",
+			"disabled":"false",
+			"param":{"@mode":"json2xml"}
+		}
+	}
+}}
