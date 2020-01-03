@@ -35,6 +35,6 @@ import transformationsEngine.restCalls.test.RestCallsForStaxonTransformationsTes
 	FlowConfigurationTest.class,
 	RestCallsForDigesterTransformationsTest.class, RestCallsForDummyTransformationsTest.class,
 	RestCallsForFlowTransformationsTest.class, RestCallsForStaxonTransformationsTest.class})
-public class AllTranformationEngineTests {
+public class AllTransformationEngineTests {
 
 }
