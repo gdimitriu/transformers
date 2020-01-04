@@ -69,6 +69,13 @@ public class ServerJetty {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		System.out.println(String.format("Application started.%nHit enter to stop it..."));
+		try {
+			System.in.read();
+			jetty.stopServer();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Override
@@ -99,9 +106,6 @@ public class ServerJetty {
 
 		server.start();
 		started.set(true);
-		System.out.println(String.format("Application started.%nHit enter to stop it..."));
-		System.in.read();
-		server.stop();
 	}
 
 	public boolean isStarted() {
