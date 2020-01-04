@@ -30,7 +30,7 @@ import org.glassfish.jersey.servlet.ServletContainer;
 public class ServerJetty {
 	/** http jetty server */
 	private Server server = null;
-	/** rest reponse port */
+	/** rest response port */
 	private int serverPort = 8099;
 	/** context handler for jersey */
 	private ServletContextHandler context = null;
@@ -55,7 +55,11 @@ public class ServerJetty {
 	}
 	
 	public static void main(String[] args) {
-		ServerJetty jetty = new ServerJetty();
+		ServerJetty jetty = null;
+		if (args.length > 0) {
+			jetty = new ServerJetty(Integer.parseInt(args[0]));
+		}
+		 jetty = new ServerJetty();
 		try {
 			jetty.startServer();
 		} catch (Exception e) {

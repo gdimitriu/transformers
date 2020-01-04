@@ -180,6 +180,9 @@ public class ProcessingRestTestManual {
 	public static void main(String[] args) {
 		ProcessingRestTestManual test = new ProcessingRestTestManual();
 		test.xml2json2xmlFlowStepsTest();
+		test.xml2json2xmlStepsFlowWithConfigurationTest();
+		test.xml2xml2xmlXsltFlowOneStepTest();
+		test.xml2xmlXsltOneStepTest();
 	}
 
 }
