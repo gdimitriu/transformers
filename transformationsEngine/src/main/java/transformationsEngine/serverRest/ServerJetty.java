@@ -24,6 +24,8 @@ import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.glassfish.jersey.servlet.ServletContainer;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+
 /**
  * This is the jetty HTTP server in which run the jersey REST server.
  */
@@ -36,6 +38,8 @@ public class ServerJetty {
 	private ServletContextHandler context = null;
 	/** servlet handler for jersey */
 	private ServletHolder sh = null;
+
+	private AtomicBoolean started = new AtomicBoolean();
 
 	public ServerJetty(final int port) {
 		serverPort = port;
@@ -79,6 +83,7 @@ public class ServerJetty {
 	 */
 	public void startServer() throws Exception {
 
+		started.set(false);
 		sh = new ServletHolder(ServletContainer.class);
 
 		sh.setInitParameter("jersey.config.server.provider.packages", "transformationsEngine.serverRest.resources");
@@ -93,8 +98,13 @@ public class ServerJetty {
 		context.addServlet(sh, "/*");
 
 		server.start();
+		started.set(true);
 		System.out.println(String.format("Application started.%nHit enter to stop it..."));
 		System.in.read();
 		server.stop();
-	}	
+	}
+
+	public boolean isStarted() {
+		return started.get();
+	}
 }

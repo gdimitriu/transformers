@@ -69,6 +69,9 @@ public class RestCallsForFlowTransformationsTest {
 			}
 		};
 		thread.start();
+		while(!server.isStarted()) {
+			Thread.sleep(100);
+		}
 	}
 
 	/**

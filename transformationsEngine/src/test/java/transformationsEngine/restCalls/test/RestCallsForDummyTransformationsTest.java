@@ -67,6 +67,9 @@ public class RestCallsForDummyTransformationsTest {
 			}
 		};
 		thread.start();
+		while(!server.isStarted()) {
+			Thread.sleep(100);
+		}
 	}
 
 	/**

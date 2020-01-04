@@ -67,6 +67,9 @@ public class RestCallsForStaxonTransformationsTest {
 			}
 		};
 		thread.start();
+		while(!server.isStarted()) {
+			Thread.sleep(100);
+		}
 	}
 
 	/**
