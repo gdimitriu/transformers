@@ -39,12 +39,21 @@ public final class StreamUtils {
 	}
 	
 	static public String getStringFromResourceWithoutSpaces(final String resourceFile) {
-		return  new BufferedReader(new InputStreamReader(
+		return  removeXmlHeader(new BufferedReader(new InputStreamReader(
 				StreamUtils.class.getClassLoader().getResourceAsStream(resourceFile)))
-		  .lines().map(s -> s.trim()).collect(Collectors.joining(""));
+		  .lines().map(s -> s.trim()).collect(Collectors.joining("")));
 	}
 	
 	static public String toStringFromStream(final InputStream stream) {
-		return new BufferedReader(new InputStreamReader(stream)).lines().collect(Collectors.joining("\n"));
+		return removeXmlHeader(new BufferedReader(new InputStreamReader(stream)).lines()
+				.collect(Collectors.joining("\n")));
+	}
+
+	private static String removeXmlHeader(String str) {
+		if (str.indexOf("?>") > 0  && str.indexOf("<?xml") == 0) {
+			return str.substring(str.indexOf("?>") + 2);
+		} else {
+			return str;
+		}
 	}
 }
