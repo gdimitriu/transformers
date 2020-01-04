@@ -69,13 +69,6 @@ public class ServerJetty {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println(String.format("Application started.%nHit enter to stop it..."));
-		try {
-			System.in.read();
-			jetty.stopServer();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
 	
 	@Override
