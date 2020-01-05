@@ -24,6 +24,7 @@ import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.glassfish.jersey.servlet.ServletContainer;
 
+import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
@@ -66,6 +67,17 @@ public class ServerJetty {
 		 jetty = new ServerJetty();
 		try {
 			jetty.startServer();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("Application started. Write EXIT to stop it...");
+		try {
+			Scanner scanner = new Scanner(System.in);
+			String str = scanner.nextLine();
+			while(!"EXIT".equals(str)) {
+				str = scanner.nextLine();
+			}
+			jetty.stopServer();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
