@@ -77,6 +77,17 @@ public class ServerJetty {
 			while(!"EXIT".equals(str)) {
 				str = scanner.nextLine();
 			}
+		} catch (java.util.NoSuchElementException e) {
+			System.out.println("Running into container");
+			while(true) {
+				try {
+					Thread.sleep(1000);
+				} catch (Exception e1) {
+					//just ignore it
+				}
+			}
+		}
+		try {
 			jetty.stopServer();
 		} catch (Exception e) {
 			e.printStackTrace();
