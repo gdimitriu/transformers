@@ -7,7 +7,7 @@
 	<name>Transformations Engine</name>
 	<properties>
 		<transformersEngine.version>1.0.0-SNAPSHOT</transformersEngine.version>
-		<jetty.version>12.0.32</jetty.version>
+		<jetty.version>12.0.33</jetty.version>
 		<jersey.version>3.1.9</jersey.version>
 		<staxon.version>9.7.0-14</staxon.version>
 		<jaxb.version>4.0.2</jaxb.version>
