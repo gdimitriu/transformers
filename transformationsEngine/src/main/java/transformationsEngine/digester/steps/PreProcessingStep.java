@@ -21,7 +21,7 @@ package transformationsEngine.digester.steps;
 
 import java.io.IOException;
 
-import javax.ws.rs.core.MultivaluedMap;
+import jakarta.ws.rs.core.MultivaluedMap;
 
 import org.glassfish.jersey.media.multipart.FormDataMultiPart;
 

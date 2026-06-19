@@ -19,7 +19,7 @@
 */
 package transformationsEngine.interfaces;
 
-import javax.ws.rs.core.MultivaluedMap;
+import jakarta.ws.rs.core.MultivaluedMap;
 
 import org.glassfish.jersey.media.multipart.FormDataMultiPart;
 

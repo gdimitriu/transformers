@@ -39,7 +39,7 @@ public class StepsFactory extends AbstractObjectCreationFactory<Object> {
 			className = "transformationsEngine.digester.steps.transformers." + className;
 			result = Class.forName(className);
 		}
-		return result.newInstance();
+		return result.getDeclaredConstructor().newInstance();
 	}
 
 }

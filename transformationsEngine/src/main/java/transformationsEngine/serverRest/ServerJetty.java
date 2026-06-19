@@ -20,8 +20,8 @@
 package transformationsEngine.serverRest;
 
 import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.servlet.ServletContextHandler;
-import org.eclipse.jetty.servlet.ServletHolder;
+import org.eclipse.jetty.ee10.servlet.ServletContextHandler;
+import org.eclipse.jetty.ee10.servlet.ServletHolder;
 import org.glassfish.jersey.servlet.ServletContainer;
 
 import java.util.Scanner;
@@ -111,15 +111,15 @@ public class ServerJetty {
 
 		sh.setInitParameter("jersey.config.server.provider.packages", "transformationsEngine.serverRest.resources");
 		sh.setInitParameter("com.sun.jersey.config.property.packages", "transformationsEngine.serverRest.AppConfig");
-		sh.setInitParameter("javax.ws.rs.Application", "transformationsEngine.serverRest.AppConfig");
+		sh.setInitParameter("jakarta.ws.rs.Application", "transformationsEngine.serverRest.AppConfig");
 		sh.setInitParameter("com.sun.jersey.config.property.packages", "rest");
 		server = new Server(serverPort);
 
-		context = new ServletContextHandler(server, "/",
-				ServletContextHandler.SESSIONS);
-
+		context = new ServletContextHandler(ServletContextHandler.SESSIONS);
+		context.setContextPath("/");
 		context.addServlet(sh, "/*");
 
+		server.setHandler(context);
 		server.start();
 		started.set(true);
 	}

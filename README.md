@@ -24,15 +24,11 @@ The project transformationsEngine is an example on how to use the digester and s
  
 The outcome of this project is used in chappy project.
 
-Those project should be compiled and run only with java 8.
 =
-
-For java 9 the unitests should be moved to another project and digester should be removed because some dependencies have been removed from java 11.
 
 The conclusions of this project and later on chappy and skynet are:
 -
 - digester is good for what is was created but for transformer flow configuration is better to have jaxb.
-- digester is no longer maintained so it will have problem with java 9 modules and removed libraries.
 - digester is more complicated to maintain if the configuration is changed or the parameters of calls are changed.
 - jaxb is better suite to maintain configuration.
 - classed created by jaxb could be use in stateless configuration and they are instanciated only once per flow.

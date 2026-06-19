@@ -22,7 +22,7 @@ package transformationsEngine.digester.steps.transformers;
 import java.io.InputStream;
 import java.util.Iterator;
 
-import javax.ws.rs.core.MultivaluedMap;
+import jakarta.ws.rs.core.MultivaluedMap;
 import javax.xml.transform.Result;
 import javax.xml.transform.Source;
 import javax.xml.transform.Transformer;

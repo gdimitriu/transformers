@@ -23,18 +23,18 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import javax.servlet.ServletException;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.MultivaluedMap;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
-import javax.ws.rs.core.UriInfo;
+import jakarta.servlet.ServletException;
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.PUT;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.QueryParam;
+import jakarta.ws.rs.core.Context;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.MultivaluedMap;
+import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.core.Response.Status;
+import jakarta.ws.rs.core.UriInfo;
 import javax.xml.stream.XMLStreamException;
 
 import org.apache.commons.digester3.Digester;
@@ -172,7 +172,7 @@ public class TransformResources {
 		
 		paramTypes = new String[] {"transformationsEngine.wrappers.StreamHolder",
 				"org.glassfish.jersey.media.multipart.FormDataMultiPart",
-				"javax.ws.rs.core.MultivaluedMap"};
+				"jakarta.ws.rs.core.MultivaluedMap"};
 		digester.addCallMethod("*/step", "execute", 3, paramTypes);
 		digester.addCallParam("*/step", 0, 3);
 		digester.addCallParam("*/step", 1, 2);

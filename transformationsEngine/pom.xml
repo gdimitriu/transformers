@@ -7,18 +7,19 @@
 	<name>Transformations Engine</name>
 	<properties>
 		<transformersEngine.version>1.0.0-SNAPSHOT</transformersEngine.version>
-		<jetty.version>9.4.56.v20240826</jetty.version>
-		<jersey.version>2.14</jersey.version>
+		<jetty.version>12.0.15</jetty.version>
+		<jersey.version>3.1.9</jersey.version>
 		<staxon.version>9.7.0-14</staxon.version>
+		<jaxb.version>4.0.2</jaxb.version>
 	</properties>
 	<build>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
+				<version>3.13.0</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>21</source>
+					<target>21</target>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -123,8 +124,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-servlet</artifactId>
+			<groupId>org.eclipse.jetty.ee10</groupId>
+			<artifactId>jetty-ee10-servlet</artifactId>
 			<version>${jetty.version}</version>
 		</dependency>
 
@@ -144,6 +145,23 @@
 			<groupId>org.glassfish.jersey.media</groupId>
 			<artifactId>jersey-media-multipart</artifactId>
 			<version>${jersey.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.inject</groupId>
+			<artifactId>jersey-hk2</artifactId>
+			<version>${jersey.version}</version>
+		</dependency>
+		<!-- JAXB (removed from JDK 11+) -->
+		<dependency>
+			<groupId>jakarta.xml.bind</groupId>
+			<artifactId>jakarta.xml.bind-api</artifactId>
+			<version>${jaxb.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-impl</artifactId>
+			<version>4.0.5</version>
+			<scope>runtime</scope>
 		</dependency>
 		<!--  digester -->
 		<dependency>

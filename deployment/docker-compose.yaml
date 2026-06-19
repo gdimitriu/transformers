@@ -1,0 +1,9 @@
+services:
+    transformers:
+        build:
+            context: "./"
+            dockerfile: "Dockerfile.transformationsEngine"
+        ports:
+            - 8099:8099
+        environment:
+            - JAVA_TOOL_OPTIONS=-XX:MaxRAMPercentage=75.0

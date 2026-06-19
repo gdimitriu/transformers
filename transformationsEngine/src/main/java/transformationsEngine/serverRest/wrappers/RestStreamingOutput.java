@@ -22,8 +22,8 @@ package transformationsEngine.serverRest.wrappers;
 import java.io.IOException;
 import java.io.OutputStream;
 
-import javax.ws.rs.WebApplicationException;
-import javax.ws.rs.core.StreamingOutput;
+import jakarta.ws.rs.WebApplicationException;
+import jakarta.ws.rs.core.StreamingOutput;
 /**
  * Wrapper class to send stream back as HTTP response.
  */

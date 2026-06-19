@@ -23,9 +23,9 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.ws.rs.core.MultivaluedMap;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
+import jakarta.ws.rs.core.MultivaluedMap;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBException;
 
 import org.glassfish.jersey.media.multipart.FormDataMultiPart;
 
@@ -76,7 +76,7 @@ public class FlowRunner {
 	 * @throws NoSuchFieldException 
 	 * @throws IllegalArgumentException 
 	 */
-	public void createSteps() throws ClassNotFoundException, InstantiationException, IllegalAccessException, IllegalArgumentException, NoSuchFieldException, SecurityException {
+	public void createSteps() throws ClassNotFoundException, InstantiationException, IllegalAccessException, IllegalArgumentException, NoSuchFieldException, SecurityException, NoSuchMethodException, java.lang.reflect.InvocationTargetException {
 		StepConfiguration[] steps = configuration.getSteps();
 		for (StepConfiguration conf : steps) {
 			ITransformerStep step = createStep(conf.getName());
@@ -107,7 +107,7 @@ public class FlowRunner {
 	 * @throws InstantiationException
 	 * @throws IllegalAccessException
 	 */
-	private ITransformerStep createStep(final String name) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+	private ITransformerStep createStep(final String name) throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, java.lang.reflect.InvocationTargetException {
 		Class<?> result = null;
 		String className = "transformationsEngine.digester.steps." + name;
 		try {
@@ -116,7 +116,7 @@ public class FlowRunner {
 			className = "transformationsEngine.digester.steps.transformers." + name;
 			result = Class.forName(className);
 		}
-		return (ITransformerStep) result.newInstance();
+		return (ITransformerStep) result.getDeclaredConstructor().newInstance();
 	}
 
 }

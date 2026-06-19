@@ -19,14 +19,14 @@
 */
 package transformationsEngine.serverRest;
 
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
+import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.core.Response.Status;
 
 /**
  * Exception Mapper which map a throwable to response status.
  * This will be use by rest to send message from throwable to rest.
  */
-public class ExceptionMapper implements javax.ws.rs.ext.ExceptionMapper<Throwable> {
+public class ExceptionMapper implements jakarta.ws.rs.ext.ExceptionMapper<Throwable> {
 
 	/**
 	 * convert the exception which was thrown by transformation into a HTTP response.
